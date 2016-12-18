@@ -2,7 +2,7 @@ version: '2'
 services:
   lamp:
 #    build:
-#      context: .
+#      context: ./docker-files/php5
 #      dockerfile: Dockerfile
     image: kylephp/alpine-lamp
     container_name: lamp
@@ -15,7 +15,7 @@ services:
     restart: always
   lamp7:
 #    build:
-#      context: .
+#      context: ./docker-files/php7
 #      dockerfile: Dockerfile7
     image: kylephp/alpine-lamp:php7
     container_name: lamp7
