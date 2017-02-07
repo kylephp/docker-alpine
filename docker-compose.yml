@@ -11,28 +11,26 @@ services:
     links:
       - mysql:mysql.dev.php
     ports:
-      - "82:80"
+      - "90:80"
     restart: always
   lamp7:
-#    build:
-#      context: ./docker-files/php7
-#      dockerfile: Dockerfile7
+    build:
+      context: ./docker-files/php7
+      dockerfile: Dockerfile
     image: kylephp/alpine-lamp:php7
     container_name: lamp7
     volumes:
       - "./html/:/web/html"
     links:
-      - mysql:mysql.dev.php
+      - mysql:mysql.dev.local
     ports:
-      - "83:80"
+      - "91:80"
     restart: always
   mysql:
     image: mysql
-    container_name: mysql.dev.php
+    container_name: mysql.dev.local
     ports:
       - "4306:3306"
     environment:
-      MYSQL_USER: kyle
-      MYSQL_PASSWORD: kyle
       MYSQL_ROOT_PASSWORD: 'root'
     restart: always

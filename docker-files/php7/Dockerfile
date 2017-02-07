@@ -2,7 +2,7 @@ FROM nimmis/alpine-apache-php7
 MAINTAINER Kyle Hoang - https://github.com/kylephp
 
 ### install shadow package for usermod ###
-RUN apk add --update  shadow@community php7-dom@community php7-zlib@community php7-session@community php7-xml@community --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
+RUN apk add --update  shadow@community php7-dom@community php7-iconv@community php7-zlib@community php7-ctype@community php7-session@community php7-xml@community php7-pdo_mysql@community --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
     rm -rf /var/cache/apk/*
 
 #RUN sed -ire 's/display_errors = Off/display_errors = On/g' /etc/php7/php.ini
