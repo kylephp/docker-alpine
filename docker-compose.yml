@@ -1,9 +1,9 @@
 version: '2'
 services:
   lamp:
-#    build:
-#      context: ./docker-files/php5
-#      dockerfile: Dockerfile
+    build:
+      context: ./docker-files/php5
+      dockerfile: Dockerfile
     image: kylephp/alpine-lamp
     container_name: lamp
     volumes:
