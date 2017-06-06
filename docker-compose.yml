@@ -1,36 +1,31 @@
 version: '2'
 services:
   lamp:
-    build:
-      context: ./docker-files/php5
-      dockerfile: Dockerfile
+#    build:
+#      context: ./docker-files/php5
+#      dockerfile: Dockerfile
     image: kylephp/alpine-lamp
     container_name: lamp
     volumes:
       - "./html/:/web/html"
-    links:
-      - mysql:mysql.dev.php
     ports:
       - "90:80"
     restart: always
+    networks:
+      - dev.local
   lamp7:
-    build:
-      context: ./docker-files/php7
-      dockerfile: Dockerfile
+#    build:
+#      context: ./docker-files/php7
+#      dockerfile: Dockerfile
     image: kylephp/alpine-lamp:php7
     container_name: lamp7
     volumes:
       - "./html/:/web/html"
-    links:
-      - mysql:mysql.dev.local
     ports:
       - "91:80"
     restart: always
-  mysql:
-    image: mysql
-    container_name: mysql.dev.local
-    ports:
-      - "4306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-    restart: always
+    networks:
+      - dev.local
+networks:
+  dev.local:
+    external: true
